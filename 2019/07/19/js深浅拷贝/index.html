@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | lwl</title>
+  <title>js深浅拷贝 | lwl</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="lwl">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="vue-cli开发时 npm run serve打包上线时 npm run build代码规范检查 npm run lint项目结构 public        不需要 webpack 处理的静态资源文件  favicon.ico 小图标 index.html  项目的模板文件   src           需要 webpack 处理的源代码文件夹  assets      静态资源文件 （图片">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js深浅拷贝">
+<meta property="og:url" content="http://yoursite.com/2019/07/19/js深浅拷贝/index.html">
 <meta property="og:site_name" content="lwl">
+<meta property="og:description" content="vue-cli开发时 npm run serve打包上线时 npm run build代码规范检查 npm run lint项目结构 public        不需要 webpack 处理的静态资源文件  favicon.ico 小图标 index.html  项目的模板文件   src           需要 webpack 处理的源代码文件夹  assets      静态资源文件 （图片">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-20T00:45:17.601Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lwl">
+<meta name="twitter:title" content="js深浅拷贝">
+<meta name="twitter:description" content="vue-cli开发时 npm run serve打包上线时 npm run build代码规范检查 npm run lint项目结构 public        不需要 webpack 处理的静态资源文件  favicon.ico 小图标 index.html  项目的模板文件   src           需要 webpack 处理的源代码文件夹  assets      静态资源文件 （图片">
   
     <link rel="alternative" href="/atom.xml" title="lwl" type="application/atom+xml">
   
@@ -144,70 +148,115 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-js深浅拷贝" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/19/js深浅拷贝/" class="archive-article-date">
-  	<time datetime="2019-07-19T12:51:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/19/js深浅拷贝/">js深浅拷贝</a>
+    <h1 class="article-title" itemprop="name">
+      js深浅拷贝
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/15/hello-world/" class="archive-article-date">
-  	<time datetime="2019-07-15T13:36:42.816Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-15</time>
+        
+        <a href="/2019/07/19/js深浅拷贝/" class="archive-article-date">
+  	<time datetime="2019-07-19T12:51:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
 </a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="vue-cli"><a href="#vue-cli" class="headerlink" title="vue-cli"></a>vue-cli</h1><h2 id="开发时-npm-run-serve"><a href="#开发时-npm-run-serve" class="headerlink" title="开发时 npm run serve"></a>开发时 npm run serve</h2><h2 id="打包上线时-npm-run-build"><a href="#打包上线时-npm-run-build" class="headerlink" title="打包上线时 npm run build"></a>打包上线时 npm run build</h2><h2 id="代码规范检查-npm-run-lint"><a href="#代码规范检查-npm-run-lint" class="headerlink" title="代码规范检查 npm run lint"></a>代码规范检查 npm run lint</h2><h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><ul>
+<li><p>public        不需要 webpack 处理的静态资源文件</p>
+<ul>
+<li>favicon.ico 小图标</li>
+<li>index.html  项目的模板文件</li>
+</ul>
+</li>
+<li><p>src           需要 webpack 处理的源代码文件夹</p>
+<ul>
+<li>assets      静态资源文件 （图片 、字体、css）</li>
+<li>components  项目中需要使用的 组件</li>
+<li>views       项目路由页面组件</li>
+<li>App.vue     万年老二组件</li>
+<li>main.js     项目的入口js</li>
+<li>router.js   项目的路由配置</li>
+</ul>
+</li>
+<li><p>.browserslistrc   浏览器支持性配置文件，它是给到后面的 postcss.config.js 中去使用的</p>
+</li>
+<li><p>.editorconfig    编辑器配置文件</p>
+</li>
+<li><p>.eslintrc.js     eslint配置文件</p>
+</li>
+<li><p>.gitignore</p>
+</li>
+<li><p>babel.config.js   babel 配置文件</p>
+</li>
+<li><p>package.json</p>
+</li>
+<li><p>postcss.config.js   postcss 配置文件</p>
+</li>
+</ul>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/07/15/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -230,8 +279,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
