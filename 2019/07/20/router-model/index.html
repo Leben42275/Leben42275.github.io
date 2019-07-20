@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | lwl</title>
+  <title>router model | lwl</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="lwl">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="vue-router 中包含有两种路由模式 hash (默认) history  new VueRouter({  mode: ‘history’,  routes: []}) 比较两种模式的区别 url地址表现不同，hash模式在url地址有 # 号 实现原理不同 hash onHashChange history HTML5 新增的 history相关的apihistory.pushState">
+<meta property="og:type" content="article">
+<meta property="og:title" content="router model">
+<meta property="og:url" content="http://yoursite.com/2019/07/20/router-model/index.html">
 <meta property="og:site_name" content="lwl">
+<meta property="og:description" content="vue-router 中包含有两种路由模式 hash (默认) history  new VueRouter({  mode: ‘history’,  routes: []}) 比较两种模式的区别 url地址表现不同，hash模式在url地址有 # 号 实现原理不同 hash onHashChange history HTML5 新增的 history相关的apihistory.pushState">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-20T08:48:55.953Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lwl">
+<meta name="twitter:title" content="router model">
+<meta name="twitter:description" content="vue-router 中包含有两种路由模式 hash (默认) history  new VueRouter({  mode: ‘history’,  routes: []}) 比较两种模式的区别 url地址表现不同，hash模式在url地址有 # 号 实现原理不同 hash onHashChange history HTML5 新增的 history相关的apihistory.pushState">
   
     <link rel="alternative" href="/atom.xml" title="lwl" type="application/atom+xml">
   
@@ -142,190 +146,144 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-router-model" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      router model
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/20/router-model/" class="archive-article-date">
+
+        
+        <a href="/2019/07/20/router-model/" class="archive-article-date">
   	<time datetime="2019-07-20T08:48:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/20/router-model/">router model</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="vue-router-中包含有两种路由模式"><a href="#vue-router-中包含有两种路由模式" class="headerlink" title="vue-router 中包含有两种路由模式"></a>vue-router 中包含有两种路由模式</h1><ul>
+<li>hash (默认)</li>
+<li>history</li>
+</ul>
+<p>new VueRouter({<br>  mode: ‘history’,<br>  routes: []<br>})</p>
+<h2 id="比较两种模式的区别"><a href="#比较两种模式的区别" class="headerlink" title="比较两种模式的区别"></a>比较两种模式的区别</h2><ol>
+<li>url地址表现不同，hash模式在url地址有 # 号</li>
+<li>实现原理不同<ol>
+<li>hash onHashChange</li>
+<li>history HTML5 新增的 history相关的api<pre><code>history.pushState()
+history.replaceState()
+window.onpopstate</code></pre></li>
+</ol>
+</li>
+<li>history在上线之后放置到静态web服务器中，刷新会出现404的错误，需要后台配合。</li>
+</ol>
+<h2 id="导航守卫"><a href="#导航守卫" class="headerlink" title="导航守卫"></a>导航守卫</h2><blockquote>
+<p>在路由进行跳转的时候，能监听到，并做一些事情。</p>
+</blockquote>
+<p>三大块：</p>
+<ul>
+<li>全局守卫<ul>
+<li>全局前置  beforeEach</li>
+<li>全局后置  afterEach</li>
+</ul>
+</li>
+<li>路由独享 在路由规则中设置<ul>
+<li>beforeEnter</li>
+</ul>
+</li>
+<li>组件中独享 在组件的选项中设置<ul>
+<li>beforeRouteEnter      进入的时候</li>
+<li>beforeRouteUpdate     更新的时候</li>
+<li>beforeRouteLeave      离开的时候</li>
+</ul>
+</li>
+</ul>
+<h4 id="守卫中的参数"><a href="#守卫中的参数" class="headerlink" title="守卫中的参数"></a>守卫中的参数</h4><ul>
+<li>to - 将要去的路由</li>
+<li>from - 从哪里去的路由</li>
+<li>next - 控制是否需要让他去<ol>
+<li>不调用next(),或者 next(false) 路由将不能跳转</li>
+<li>直接调用 next() ， 那么路由想去哪，就去哪</li>
+<li>next(‘/detail/apple’); 被打掉哪个路由里面去。</li>
+</ol>
+</li>
+</ul>
+<h4 id="路由守卫的一些使用场景"><a href="#路由守卫的一些使用场景" class="headerlink" title="路由守卫的一些使用场景"></a>路由守卫的一些使用场景</h4><ol>
+<li><p>如果是从 A-&gt;B 那么不然它去，其他页要去 B ok .</p>
+<ol>
+<li>全局前置，判断from是不是A,并且判断to是不是B   X</li>
+<li>beforeRouteLeave 写在 A 的组件上，判断to是不是B</li>
+</ol>
+</li>
+<li><p>A B C D E F G, A B 必须要登录才能进去。</p>
+<ol>
+<li>全局判断 to 是否等于 A || B ,然后再判断有么有登录状态。 ✅</li>
+<li>在 A B 的 beforeEnter 中，判断登录状态。</li>
+</ol>
+</li>
+</ol>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/20/router/" class="archive-article-date">
-  	<time datetime="2019-07-20T08:47:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/20/router/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">router</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/20/router/">router</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">router</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/20/vue-cli/" class="archive-article-date">
-  	<time datetime="2019-07-20T08:36:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/20/vue-cli/">vue-cli</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">vue-cli</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/20/webpack/" class="archive-article-date">
-  	<time datetime="2019-07-20T08:33:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/20/webpack/">webpack</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/19/hi/" class="archive-article-date">
-  	<time datetime="2019-07-19T08:36:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/19/hi/">hi</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -348,8 +306,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
